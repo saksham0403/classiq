@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.database import engine, Base
-from app.routers import auth, classrooms, assignments, submissions, analytics, students
+from app.routers import auth, classrooms, assignments, submissions, analytics, students, upload, feedback
 from app.models import *  # Import all models so they're registered with Base
 
 # Create tables
@@ -23,6 +23,8 @@ app.include_router(auth.router, prefix="/auth", tags=["auth"])
 app.include_router(classrooms.router, prefix="/classrooms", tags=["classrooms"])
 app.include_router(assignments.router, prefix="/assignments", tags=["assignments"])
 app.include_router(submissions.router, prefix="/assignments", tags=["submissions"])
+app.include_router(upload.router, prefix="/assignments", tags=["upload"])
+app.include_router(feedback.router, prefix="/answers", tags=["feedback"])
 app.include_router(analytics.router, prefix="", tags=["analytics"])
 app.include_router(students.router, prefix="/students", tags=["students"])
 

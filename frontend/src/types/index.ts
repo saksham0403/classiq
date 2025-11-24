@@ -86,6 +86,7 @@ export interface AnswerSubmission {
 }
 
 export interface AnswerResponse {
+  answer_id?: number;  // For feedback requests
   question_id: number;
   student_answer: string;
   correct_answer: string;

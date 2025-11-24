@@ -107,6 +107,24 @@ export const submissionApi = {
     const response = await api.post<SubmissionResponse>(`/assignments/${assignmentId}/submissions`, data);
     return response.data;
   },
+  upload: async (assignmentId: number, file: File): Promise<any> => {
+    const formData = new FormData();
+    formData.append('file', file);
+    const response = await api.post(`/assignments/${assignmentId}/upload`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    return response.data;
+  },
+};
+
+// Feedback
+export const feedbackApi = {
+  getFeedback: async (answerId: number): Promise<{ answer_id: number; feedback: string; cached: boolean }> => {
+    const response = await api.post(`/answers/${answerId}/feedback`);
+    return response.data;
+  },
 };
 
 // Students

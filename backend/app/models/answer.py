@@ -12,6 +12,7 @@ class Answer(Base):
     ai_score = Column(Float, nullable=True)
     ai_is_correct = Column(Boolean, nullable=True)
     feedback = Column(Text, nullable=True)
+    ai_feedback = Column(Text, nullable=True)  # LLM-generated feedback
 
     # Relationships
     submission = relationship("Submission", back_populates="answers")
