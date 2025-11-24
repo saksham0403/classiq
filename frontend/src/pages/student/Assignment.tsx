@@ -169,8 +169,8 @@ export default function StudentAssignment() {
                     <div
                       key={answer.question_id}
                       className={`border rounded p-4 ${answer.ai_is_correct
-                          ? 'border-green-300 bg-green-50'
-                          : 'border-red-300 bg-red-50'
+                        ? 'border-green-300 bg-green-50'
+                        : 'border-red-300 bg-red-50'
                         }`}
                     >
                       <div className="flex justify-between items-start mb-2">
